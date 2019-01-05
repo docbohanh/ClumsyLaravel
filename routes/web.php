@@ -121,3 +121,50 @@ Route::resource('user', 'UserController', ['except' => ['index', 'show', 'destro
 
 // Todo Resources
 Route::resource('todo', 'TodoController', ['middleware' => 'auth']);
+
+
+// Model
+Route::get('model/save', function() {
+    $user = new App\User();
+    $user->name = "Mai";
+    $user->email = "mainguyen@gmail.com";
+    $user->password = "matkhau";
+
+    $user->save();
+
+    echo "Đã thực hiện save()";
+});
+
+Route::get('model/query', function() {
+    $user = App\User::find(4);
+
+    echo $user->name;
+});
+
+Route::get('product/save/{ten}', function($ten) {
+    $product = new App\Product();
+    $product->name = $ten;
+    $product->count = 100;
+    $product->save();
+
+    echo "Đã thực hiện lưu sản phẩm ".$ten;
+});
+
+Route::get('model/product/all', function() {
+    $product = App\Product::all()->toArray();
+
+    var_dump($product);
+
+});
+
+Route::get('model/product/name', function() {
+    $product = App\Product::where('name', 'iPad')->get()->toArray();
+
+    echo $product[0]['name'];
+});
+
+Route::get('model/product/delete/{id}', function($id) {
+    $product = App\Product::destroy('id', $id);   
+    echo "Đã thực hiện xóa sản phẩm có id = ".$id; 
+});
+
