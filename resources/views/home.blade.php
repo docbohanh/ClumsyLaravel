@@ -9,7 +9,7 @@
 
         <p>For any query please contact</p>
 
-        <h3>Nuruzzaman Milon</h3>
-        <h4><a href="http://milon.im">http://milon.im</a></h4>
+        <h3>Thành Lã</h3>
+        <h4><a href="https://thanhladev.github.io/" target="_blank">https://thanhladev.github.io/</a></h4>
     </div>
 @endsection
